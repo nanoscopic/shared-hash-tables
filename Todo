@@ -1,0 +1,35 @@
+0.03
+    [0.03] Properly "namespace" the whole library so that functions do no conflict with those from other libraries.
+    [0.03] Fix bug related to strncmp ( keys containing nulls would cause issues, even when their length is specified )
+
+0.02
+    [] Make an option where a hash will use a small list instead of hashing when
+        there are less than 4 keys
+    [] Implement a way to have a single hash type with automigration from a regular
+        size hash to a "bighash"
+    [] Implement optional tracking of keys to use a single section of memory for
+        commonly used string keys
+    [] Generally implement a single interface to multiple hash types, such that a
+        single handle can be passed into it and the type will be figured out and
+        handled properly automatically.
+    [] Add code to migrate a hash from one offset/page to another offset/page
+    [] Add optional tracking of all created hashes within a single page
+    [] Create a variant base hash method for integer keys
+    [] Support a variety of inpage retry options
+    [] Support a variety of string hashing algorithms
+
+0.01
+    [0.02] Rewrite the hashing system entirely in plain C
+    [0.02] Split up implementation of the library from the headers
+    [0.03] Extend bighash/pageman to support more than 2.6 million keys
+    [] Allow page memory to be split up rather than being allocated as one huge chunk
+        ( each page right now allocates a single 100k chunk of memory )
+0.00
+    [0.01] Create basic hash algorithm, and test collisions
+    [0.01] Create a paging system
+    [0.01] Allow multiple retries within a page ( like sequential buckets )
+    [0.01] Create "bighash" functionality to allow for hashing containing millions of keys
+    [] Implement key deletion
+    [] Implement hash deletion
+    [] Implement listing keys in a hash
+    [] Do proper deallocation of allocated memory on library destruction
